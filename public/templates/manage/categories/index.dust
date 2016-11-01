@@ -1,0 +1,49 @@
+{>"layouts/manage" /}
+{<body}
+  <h2>Categories</h2>
+  <p>
+    <a href="/manage/categories/add">Add Category</a>
+  </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="text-align:center">
+        <th scope="row">1</th>
+        <th>CAtaege1</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+      </tr>
+      <tr style="text-align:center">
+        <th scope="row">2</th>
+        <th>CAtaege2</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+      </tr>
+      <tr style="text-align:center">
+        <th scope="row">3</th>
+        <th>Category3</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+      </tr>
+      <tr style="text-align:center">
+        <th scope="row">4</th>
+        <th>Category4</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+      </tr>
+      <tr style="text-align:center">
+        <th scope="row">5</th>
+        <th>Category5</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+      </tr>
+    </tbody>
+  </table>
+{/body}

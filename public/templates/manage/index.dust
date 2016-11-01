@@ -1,1 +1,5 @@
-Manage Index
+{>"layouts/manage" /}
+{<body}
+  <h2>Manage</h2>
+  <p>This is the manage area</p>
+{/body}
