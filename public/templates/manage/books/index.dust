@@ -15,41 +15,15 @@
       </tr>
     </thead>
     <tbody>
+      {#books}
       <tr style="text-align:center">
-        <th scope="row">1</th>
-        <th>Book1</th>
-        <th>Category1</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px">Delete</a></th>
+        <th scope="row">{._id}</th>
+        <th>{.title}</th>
+        <th>{.category}</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/{._id}">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px" data-id="{._id}" href="#">Delete</a></th>
       </tr>
-      <tr style="text-align:center">
-        <th scope="row">2</th>
-        <th>Book2</th>
-        <th>Category2</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">3</th>
-        <th>Book31</th>
-        <th>Category3</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">4</th>
-        <th>Book4</th>
-        <th>Category4</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">5</th>
-        <th>Book5</th>
-        <th>Category5</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/books/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm removeBook" style="width:70px">Delete</a></th>
-      </tr>
+      {/books}
     </tbody>
   </table>
 {/body}

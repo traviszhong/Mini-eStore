@@ -1,0 +1,68 @@
+{>"layouts/manage" /}
+
+{<body}
+  <div class="col-lg-3">
+    <h2>Add Book</h2>
+    <form method="post" action="/manage/books">
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Title
+            <input name="title" type="text"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Author
+            <input name="author" type="text"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Publisher
+            <input name="publisher" type="text"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Price
+            <input name="price" type="text"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Category
+            <select name="category">
+            {#categories}
+              <option value="{.name}">{.name}</option>
+            {/categories}
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Description
+            <textarea name="description"/></textarea>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>URL
+            <input name="cover" type="text"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <input type="submit" class="button" value="Submit"/>
+        </div>
+      </div>
+      <input type="hidden" name="_csrf" value="{_csrf}"/>
+    </form>
+  </div>
+{/body}

@@ -14,36 +14,14 @@
       </tr>
     </thead>
     <tbody>
+      {#categories}
       <tr style="text-align:center">
-        <th scope="row">1</th>
-        <th>CAtaege1</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
+        <th scope="row">{._id}</th>
+        <th>{.name}</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/{._id}">Edit</a></th>
         <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
       </tr>
-      <tr style="text-align:center">
-        <th scope="row">2</th>
-        <th>CAtaege2</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">3</th>
-        <th>Category3</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">4</th>
-        <th>Category4</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
-      </tr>
-      <tr style="text-align:center">
-        <th scope="row">5</th>
-        <th>Category5</th>
-        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/1">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
-      </tr>
+      {/categories}
     </tbody>
   </table>
 {/body}
