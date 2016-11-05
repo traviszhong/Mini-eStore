@@ -184,4 +184,15 @@ module.exports = function (router) {
         res.redirect('/manage/categories');
       });
     });
+
+    router.delete('/categories/delete/:id',function(req,res){
+      Category.remove({_id: req.params.id},function(err){
+        if(err){
+          console.log(err);
+        }
+        req.flash('success',"Category Deleted");
+        res.location('/manage/categories');
+        res.redirect('/manage/categories');
+      });
+    });
 };

@@ -19,7 +19,7 @@
         <th scope="row">{._id}</th>
         <th>{.name}</th>
         <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/categories/edit/{._id}">Edit</a></th>
-        <th><a class="btn btn-danger btn-sm" style="width:70px">Delete</a></th>
+        <th><a class="btn btn-danger btn-sm removeCategory"  data-id="{._id}" style="width:70px">Delete</a></th>
       </tr>
       {/categories}
     </tbody>
