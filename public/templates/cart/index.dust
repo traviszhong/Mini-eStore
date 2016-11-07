@@ -6,7 +6,7 @@
 {<body}
   <div class="row">
     <div class="col-lg">
-      <h2>Your Shopping Cart <span><a href="/cart/remove">Empty Cart</a></span></h2>
+      <h2>Your Shopping Cart<span></span></h2>
       {?cart.items}
         <table class="table table-hover">
           <thead>
@@ -31,7 +31,9 @@
           <div class="col-lg-6 columns">
             <h4>Total: <strong>${cart.total}</strong></h4>
           </div>
-          <div class="col-lg-6 columns">
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
               <input type="hidden" name="cmd" value="_xclick">
               <input type="hidden" name="business" value="please_do_not_pay@sample.code">
@@ -46,6 +48,10 @@
 
               <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_107x26.png" name="submit" alt="Buy Now">
             </form>
+          </div>
+
+          <div class="col-lg-2">
+            <a href="/cart/remove" style="font-size:16px">Empty Cart</a>
           </div>
         </div>
       {:else}
