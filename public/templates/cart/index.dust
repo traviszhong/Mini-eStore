@@ -1,0 +1,56 @@
+{>"layouts/master" /}
+{<title}
+  Your Cart
+{/title}
+
+{<body}
+  <div class="row">
+    <div class="col-lg">
+      <h2>Your Shopping Cart <span><a href="/cart/remove">Empty Cart</a></span></h2>
+      {?cart.items}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {#cart.items}
+            <tr>
+              <th><a href="books/details/{._id}">{.title}</a></th>
+              <th>{.qty}</th>
+              <th>${.subtotal}</th>
+            </tr>
+            {/cart.items}
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-lg-6 columns">
+            <h4>Total: <strong>${cart.total}</strong></h4>
+          </div>
+          <div class="col-lg-6 columns">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="business" value="please_do_not_pay@sample.code">
+              <input type="hidden" name="item_name" value="TekBooks">
+              <input type="hidden" name="item_number" value="1">
+              <input type="hidden" name="currency_code" value="USD">
+              <input type="hidden" name="amount" value="{cart.total}">
+              <input type="hidden" name="no_shipping" value="1">
+              <input type="hidden" name="rm" value="2">
+              <input type="hidden" name="return" value="http://localhost:8000">
+              <input type="hidden" name="cancel_return" value="http://localhost:8000">
+
+              <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_107x26.png" name="submit" alt="Buy Now">
+            </form>
+          </div>
+        </div>
+      {:else}
+        <p>There are no items in your cart</p>
+      {/cart.items}
+    </div>
+  </div>
+{/body}

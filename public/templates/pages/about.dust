@@ -1,0 +1,14 @@
+{>"layouts/master" /}
+{<title}
+  About TekBooks
+{/title}
+
+{<body}
+  <div class="row">
+    <div class="col-lg colums">
+      <h2>About Us</h2>
+      <p>This is the paragraph to describe ourselves. We have a lot of things to say, but in short, I don't know what to say here right now.</p>
+      <p>Also, if you do not know about us, you can buy something from us, and you will know more about us.
+    </div>
+  </div>
+{/body}
