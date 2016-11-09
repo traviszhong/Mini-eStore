@@ -1,0 +1,24 @@
+{>"layouts/master" /}
+{<body}
+  <div class="row">
+    <div class="col-lg-4 columns">
+      <img class="imageframe" src="/images/{song.cover}">
+    </div>
+    <div class="col-lg-8 columns">
+      <h2>{song.title}</h2>
+      <ul class="songinfo">
+        <li>Style: {song.style}</li>
+        <li>Author: {song.author}</li>
+        <li>Publisher: {song.publisher}</li>
+        <li>Description: {song.description}</li>
+      </ul>
+      <br>
+      <div class="price"><span>${song.price}</span></div>
+      <br>
+      <form method="post" action="/cart/{song._id}">
+        <input type="submit" class="btn btn-success" value="Add to Cart"/>
+        <input type="hidden" value="{_csrf}" name="_csrf"/>
+      </form>
+    </div>
+  </div>
+{/body}

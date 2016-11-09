@@ -1,46 +1,46 @@
 'use strict';
-var Book = require('../models/bookModel');
-var Category = require('../models/categoryModel');
+var Song = require('../models/songModel');
+var Style = require('../models/styleModel');
 module.exports = function (router) {
-    router.get('/books', function (req, res) {
-        Book.find({},function(err,books){
+    router.get('/songs', function (req, res) {
+        Song.find({},function(err,songs){
           if(err){
             console.log(err);
           }
           var model = {
-            books: books
+            songs: songs
           };
-          res.render('manage/books/index', model);
+          res.render('manage/songs/index', model);
         });
     });
     router.get('/', function (req, res) {
         res.render('manage/index');
     });
-    router.get('/categories', function (req, res) {
-      Category.find({},function(err,categories){
+    router.get('/styles', function (req, res) {
+      Style.find({},function(err,styles){
         if(err){
           console.log(err);
         }
         var model = {
-          categories: categories
+          styles: styles
         };
-        res.render('manage/categories/index', model);
+        res.render('manage/styles/index', model);
       });
     });
-    router.get('/books/add',function(req,res){
-      Category.find({},function(err,categories){
+    router.get('/songs/add',function(req,res){
+      Style.find({},function(err,styles){
         if(err){
           console.log(err);
         }
         var model = {
-          categories: categories
+          styles: styles
         };
-        res.render('manage/books/add', model);
+        res.render('manage/songs/add', model);
       });
     });
-    router.post('/books',function(req,res){
+    router.post('/songs',function(req,res){
       var title = req.body.title && req.body.title.trim();
-      var category = req.body.category && req.body.category.trim();
+      var style = req.body.style && req.body.style.trim();
       var author = req.body.author && req.body.author.trim();
       var publisher = req.body.publisher && req.body.publisher.trim();
       var price = req.body.price && req.body.price.trim();
@@ -49,61 +49,61 @@ module.exports = function (router) {
 
       if(title == '' || price == ''){
         req.flash('error', "Please fill out required fields");
-        res.location('/manage/books/add');
-        res.redirect('/manage/books/add');
+        res.location('/manage/songs/add');
+        res.redirect('/manage/songs/add');
       }
       if(isNaN(price)){
         req.flash('error', "Price must be a number");
-        res.location('/manage/books/add');
-        res.redirect('/manage/books/add');
+        res.location('/manage/songs/add');
+        res.redirect('/manage/songs/add');
       }
 
-      var newBook = new Book({
+      var newSong = new Song({
         title: title,
-        category: category,
+        style: style,
         description: description,
-        Author: author,
+        author: author,
         publisher: publisher,
         cover: cover,
         price: price
       });
-      newBook.save(function(err){
+      newSong.save(function(err){
         if(err){
           console.log('save error', err);
         }
-        req.flash('success',"Book Added");
-        res.location('/manage/books');
-        res.redirect('/manage/books');
+        req.flash('success',"Song Added");
+        res.location('/manage/songs');
+        res.redirect('/manage/songs');
       });
     });
 
-    router.get('/books/edit/:id',function(req,res){
-      Category.find({},function(err,categories){
-        Book.findOne({_id:req.params.id},function(err,book){
+    router.get('/songs/edit/:id',function(req,res){
+      Style.find({},function(err,styles){
+        Song.findOne({_id:req.params.id},function(err,song){
           if(err){
             console.log(err);
           }
           var model = {
-            book: book,
-            categories: categories
+            song: song,
+            styles: styles
           };
-          res.render('manage/books/edit', model);
+          res.render('manage/songs/edit', model);
         });
       });
     });
-    router.post('/books/edit/:id',function(req,res){
+    router.post('/songs/edit/:id',function(req,res){
       var title = req.body.title && req.body.title.trim();
-      var category = req.body.category && req.body.category.trim();
+      var style = req.body.style && req.body.style.trim();
       var author = req.body.author && req.body.author.trim();
       var publisher = req.body.publisher && req.body.publisher.trim();
       var price = req.body.price && req.body.price.trim();
       var description = req.body.description && req.body.description.trim();
       var cover = req.body.cover && req.body.cover.trim();
 
-      Book.update({_id: req.params.id},{
+      Song.update({_id: req.params.id},{
         title: title,
-        category: category,
-        Author: author,
+        style: style,
+        author: author,
         publisher: publisher,
         price: price,
         description: description,
@@ -112,87 +112,87 @@ module.exports = function (router) {
         if(err){
           console.console.log('update error',err);
         }
-        req.flash('success',"Book Updated");
+        req.flash('success',"Song Updated");
         //console.log(messages);
-        res.location('/manage/books');
-        res.redirect('/manage/books');
+        res.location('/manage/songs');
+        res.redirect('/manage/songs');
       });
     });
 
-    router.delete('/books/delete/:id',function(req,res){
-      Book.remove({_id:req.params.id},function(err){
+    router.delete('/songs/delete/:id',function(req,res){
+      Song.remove({_id:req.params.id},function(err){
         if(err){
           console.log(err);
         }
-        req.flash('success',"Book Deleted");
-        res.location('/manage/books');
-        res.redirect('/manage/books');
+        req.flash('success',"Song Deleted");
+        res.location('/manage/songs');
+        res.redirect('/manage/songs');
       });
     });
 
-    router.get('/categories/add',function(req,res){
-      res.render('manage/categories/add');
+    router.get('/styles/add',function(req,res){
+      res.render('manage/styles/add');
     });
 
-    router.post('/categories',function(req,res){
+    router.post('/styles',function(req,res){
       var name = req.body.name && req.body.name.trim();
 
       if(name == ''){
         req.flash('error',"Please fill out required fields");
-        res.location('/manage/categories/add');
-        res.redirect('/manage/categories/add');
+        res.location('/manage/styles/add');
+        res.redirect('/manage/styles/add');
       }
-      var newCategory = new Category({
+      var newStyle = new Style({
         name: name
       });
 
-      newCategory.save(function(err){
+      newStyle.save(function(err){
         if(err){
           console.log('save error',err);
         }
 
-        req.flash('success',"Category Added");
-        res.location('/manage/categories');
-        res.redirect('/manage/categories');
+        req.flash('success',"Style Added");
+        res.location('/manage/styles');
+        res.redirect('/manage/styles');
       });
     });
 
-    router.get('/categories/edit/:id',function(req,res){
-      Category.findOne({_id:req.params.id},function(err,category){
+    router.get('/styles/edit/:id',function(req,res){
+      Style.findOne({_id:req.params.id},function(err,style){
         if(err){
           console.log(err);
         }
         var model = {
-          category: category
+          style: style
         };
-        res.render('manage/categories/edit',model);
+        res.render('manage/styles/edit',model);
       });
     });
 
-    router.post('/categories/edit/:id',function(req,res){
+    router.post('/styles/edit/:id',function(req,res){
       var name = req.body.name && req.body.name.trim();
 
-      Category.update({_id: req.params.id},{
+      Style.update({_id: req.params.id},{
         name: name
       }, function(err){
         if(err){
           console.log('update error',err);
         }
 
-        req.flash('success',"Category Updated");
-        res.location('/manage/categories');
-        res.redirect('/manage/categories');
+        req.flash('success',"Style Updated");
+        res.location('/manage/styles');
+        res.redirect('/manage/styles');
       });
     });
 
-    router.delete('/categories/delete/:id',function(req,res){
-      Category.remove({_id: req.params.id},function(err){
+    router.delete('/styles/delete/:id',function(req,res){
+      Style.remove({_id: req.params.id},function(err){
         if(err){
           console.log(err);
         }
-        req.flash('success',"Category Deleted");
-        res.location('/manage/categories');
-        res.redirect('/manage/categories');
+        req.flash('success',"Style Deleted");
+        res.location('/manage/styles');
+        res.redirect('/manage/styles');
       });
     });
 };

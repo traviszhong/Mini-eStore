@@ -1,25 +1,25 @@
 $(document).ready(function(){
-  $('.removeBook').click(function(e){
+  $('.removeSong').click(function(e){
     deleteId = $(this).data('id');
     $.ajax({
-      url:'/manage/books/delete/' + deleteId,
+      url:'/manage/songs/delete/' + deleteId,
       type: 'DELETE',
       success: function(){
 
       }
     });
-    window.location = '/manage/books';
+    window.location = '/manage/songs';
   });
 
-  $('.removeCategory').click(function(e){
+  $('.removeStyle').click(function(e){
     deleteId = $(this).data('id');
     $.ajax({
-      url:'/manage/categories/delete/' + deleteId,
+      url:'/manage/styles/delete/' + deleteId,
       type: 'DELETE',
       success: function(){
 
       }
     });
-    window.location = '/manage/categories';
+    window.location = '/manage/styles';
   });
 });

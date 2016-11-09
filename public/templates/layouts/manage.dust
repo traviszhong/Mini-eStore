@@ -19,13 +19,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">TekBooks</a>
+            <a class="navbar-brand" href="/">Zy Music Store</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="(title==='Manage' ? 'active' : '')"><a href="/manage">Dashboard</a></li>
-              <li class="(title==='Books' ? 'active' : '')"><a href="/manage/books">Books</a></li>
-              <li class="(title==='Categories' ? 'active' : '')"><a href="/manage/categories">Categories</a></li>
+              <li class="(title==='Songs' ? 'active' : '')"><a href="/manage/songs">Songs</a></li>
+              <li class="(title==='Styles' ? 'active' : '')"><a href="/manage/styles">Styles</a></li>
               <li><a href="/">View Website</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -38,7 +38,7 @@
         </div>
       </div>
       <footer>
-        <p> TekBooks &copy; 2016 | <a href="/">Home</a></p>
+        <p> Zy Music Store &copy; 2016 | <a href="/">Home</a></p>
       </footer>
     <script data-main="/js/app" src="/components/requirejs/require.js"></script>
     <!--

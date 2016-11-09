@@ -1,0 +1,27 @@
+{>"layouts/manage" /}
+{<body}
+  <h2>Styles</h2>
+  <p>
+    <a href="/manage/styles/add">Add Style</a>
+  </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Style Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#styles}
+      <tr style="text-align:center">
+        <th scope="row">{._id}</th>
+        <th>{.name}</th>
+        <th><a class="btn btn-primary btn-sm" style="width:70px;text-align:center" href="/manage/styles/edit/{._id}">Edit</a></th>
+        <th><a class="btn btn-danger btn-sm removeStyle"  data-id="{._id}" style="width:70px">Delete</a></th>
+      </tr>
+      {/styles}
+    </tbody>
+  </table>
+{/body}

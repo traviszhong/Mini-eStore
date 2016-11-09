@@ -1,6 +1,6 @@
 'use strict';
-var Book = require('../models/bookModel');
-var Category = require('../models/categoryModel');
+var Song = require('../models/songModel');
+var Style = require('../models/styleModel');
 
 
 module.exports = function (router) {
@@ -25,7 +25,7 @@ module.exports = function (router) {
         req.session.cart = req.session.cart || {};
         var cart = req.session.cart;
 
-        Book.findOne({_id:req.params.id},function(err, book){
+        Song.findOne({_id:req.params.id},function(err, song){
           if(err){
             console.log(err);
           }
@@ -34,11 +34,11 @@ module.exports = function (router) {
             cart[req.params.id].subtotal += cart[req.params.id].price;
           }else{
             cart[req.params.id] = {
-              item: book._id,
-              title: book.title,
-              price: book.price,
+              item: song._id,
+              title: song.title,
+              price: song.price,
               qty: 1,
-              subtotal: book.price
+              subtotal: song.price
             };
           }
           res.redirect('/cart');

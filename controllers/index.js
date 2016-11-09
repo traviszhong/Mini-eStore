@@ -1,18 +1,18 @@
 'use strict';
 
-var Book = require('../models/bookModel');
+var Song = require('../models/songModel');
 
 module.exports = function (router) {
     router.get('/', function (req, res) {
-      Book.find({},function(err,books){
+      Song.find({},function(err,songs){
         if(err){
           console.log(err);
         }
-        books.forEach(function(book){
-          book.truncText = book.truncText(50);
+        songs.forEach(function(song){
+          song.truncText = song.truncText(50);
         });
         var model = {
-          books: books
+          songs: songs
         };
         res.render('index', model);
       });
