@@ -9,7 +9,6 @@
       <ul class="songinfo">
         <li>Style: {song.style}</li>
         <li>Author: {song.author}</li>
-        <li>Publisher: {song.publisher}</li>
         <li>Description: {song.description}</li>
       </ul>
       <br>

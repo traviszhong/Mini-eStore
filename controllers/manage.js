@@ -42,7 +42,6 @@ module.exports = function (router) {
       var title = req.body.title && req.body.title.trim();
       var style = req.body.style && req.body.style.trim();
       var author = req.body.author && req.body.author.trim();
-      var publisher = req.body.publisher && req.body.publisher.trim();
       var price = req.body.price && req.body.price.trim();
       var description = req.body.description && req.body.description.trim();
       var cover = req.body.cover && req.body.cover.trim();
@@ -63,7 +62,6 @@ module.exports = function (router) {
         style: style,
         description: description,
         author: author,
-        publisher: publisher,
         cover: cover,
         price: price
       });
@@ -95,7 +93,6 @@ module.exports = function (router) {
       var title = req.body.title && req.body.title.trim();
       var style = req.body.style && req.body.style.trim();
       var author = req.body.author && req.body.author.trim();
-      var publisher = req.body.publisher && req.body.publisher.trim();
       var price = req.body.price && req.body.price.trim();
       var description = req.body.description && req.body.description.trim();
       var cover = req.body.cover && req.body.cover.trim();
@@ -104,7 +101,6 @@ module.exports = function (router) {
         title: title,
         style: style,
         author: author,
-        publisher: publisher,
         price: price,
         description: description,
         cover: cover
