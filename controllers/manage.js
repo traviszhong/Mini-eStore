@@ -1,4 +1,9 @@
 'use strict';
+var path = require('path');
+var multer = require('multer');
+//Handle file uploads & multipart data
+var upload = multer({ dest: './public/images/uploads' });
+
 var Song = require('../models/songModel');
 var Style = require('../models/styleModel');
 module.exports = function (router) {
@@ -44,35 +49,48 @@ module.exports = function (router) {
       var author = req.body.author && req.body.author.trim();
       var price = req.body.price && req.body.price.trim();
       var description = req.body.description && req.body.description.trim();
-      var cover = req.body.cover && req.body.cover.trim();
-
-      if(title == '' || price == ''){
+      var url = req.body.flashurl && req.body.flashurl.trim();
+      var cover = req.body.coverurl && req.body.coverurl.trim();
+/*
+      //Check for image field
+      if(req.file){
+        console.log('Uploading file...');
+        //file info
+        var coverOriginalName = req.file.originalname;
+        coverName = req.file.filename;
+        var coverMime = req.file.mimetype;
+        var coverPath = req.file.path;
+        //var mainImageExt = path.extname(req.file.originalname);
+        var coverSize = req.file.size;
+      }
+*/
+      if(title == '' || price == '' || description==''){
         req.flash('error', "Please fill out required fields");
         res.location('/manage/songs/add');
         res.redirect('/manage/songs/add');
-      }
-      if(isNaN(price)){
+      }else if(isNaN(price)){
         req.flash('error', "Price must be a number");
         res.location('/manage/songs/add');
         res.redirect('/manage/songs/add');
+      }else {
+        var newSong = new Song({
+          title: title,
+          style: style,
+          description: description,
+          author: author,
+          cover: cover,
+          price: price,
+          url: url
+        });
+        newSong.save(function(err){
+          if(err){
+            console.log('save error', err);
+          }
+          req.flash('success',"Song Added");
+          res.location('/manage/songs');
+          res.redirect('/manage/songs');
+        });
       }
-
-      var newSong = new Song({
-        title: title,
-        style: style,
-        description: description,
-        author: author,
-        cover: cover,
-        price: price
-      });
-      newSong.save(function(err){
-        if(err){
-          console.log('save error', err);
-        }
-        req.flash('success',"Song Added");
-        res.location('/manage/songs');
-        res.redirect('/manage/songs');
-      });
     });
 
     router.get('/songs/edit/:id',function(req,res){

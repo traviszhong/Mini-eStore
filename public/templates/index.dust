@@ -3,10 +3,10 @@
 {<body}
   {#songs}
     <div class="col-lg-3 song">
-      <img class="imageframe" src="/images/{.cover}">
+      <img class="imageframe" src="/images/{.style}.jpg">
       <h4>{.title}</h4>
       <p>{.truncText}</p>
-      <div class="price">Buy it for <span>${.price}</span></div>
+      <div class="price"><span>${.price}</span></div>
       <br>
       <a href="/songs/details/{.id}" class="btn btn-primary">Song Details</a>
     </div>

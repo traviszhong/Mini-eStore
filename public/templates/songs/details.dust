@@ -2,17 +2,29 @@
 {<body}
   <div class="row">
     <div class="col-lg-4 columns">
-      <img class="imageframe" src="/images/{song.cover}">
+      <img class="imageframe" src="/images/{song.style}.jpg">
     </div>
     <div class="col-lg-8 columns">
       <h2>{song.title}</h2>
-      <ul class="songinfo">
-        <li>Style: {song.style}</li>
-        <li>Author: {song.author}</li>
-        <li>Description: {song.description}</li>
-      </ul>
-      <br>
-      <div class="price"><span>${song.price}</span></div>
+      <br><br>
+      <dl class="dl-horizontal">
+        <dt style="text-align:left">Style:</dt>
+        <dd>{song.style}</dd>
+        <dt style="text-align:left">Author:</dt>
+        <dd>{song.author}</dd>
+        <dt style="text-align:left">Description:</dt>
+        <dd>{song.description}</dd>
+      </dl>
+      <div><iframe src="{song.url}" allowtransparency="true" allowfullscreen="true" allowfullscreenInteractive="true" scrolling="no" border="0" frameborder="0" style="width:680px;height:400px;"></iframe></div>
+      <br><br>
+      <div class="row">
+        <div class="col-sm-2 columns">
+          <h4>Our Price:</h4>
+        </div>
+        <div class="col-sm-1 columns">
+          <div class="price"><span>${song.price}</span></div>
+        </div>
+      </div>
       <br>
       <form method="post" action="/cart/{song._id}">
         <input type="submit" class="btn btn-success" value="Add to Cart"/>

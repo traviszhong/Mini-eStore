@@ -20,11 +20,11 @@ ul{
   font-size: 18px;
 }
 .price span{
-  color: green;
+  color: orange;
   background: #f4f4f4;
   padding: 10px;
   border:1px #ccc solid;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 footer{
   background: #f4f4f4;

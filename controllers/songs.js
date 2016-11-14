@@ -13,6 +13,8 @@ module.exports = function (router) {
           var model = {
             song: song
           };
+          console.log('**************************************************');
+          console.log(song.flashurl);
           res.render('songs/details',model);
         });
     });

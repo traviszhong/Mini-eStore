@@ -20,7 +20,7 @@
           <tbody>
             {#cart.items}
             <tr>
-              <th><a href="songs/details/{._id}">{.title}</a></th>
+              <th><a href="/songs/details/{.item}">{.title}</a></th>
               <th>{.qty}</th>
               <th>${.subtotal}</th>
             </tr>
