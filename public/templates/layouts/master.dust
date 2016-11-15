@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           {?messages}
-            <ul class="info">
+            <ul class="success">
               <li>{messages|s}</li>
             </ul>
           {:else}

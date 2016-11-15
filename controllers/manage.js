@@ -13,13 +13,14 @@ module.exports = function (router) {
             console.log(err);
           }
           var model = {
-            songs: songs
+            songs: songs,
+            messages: req.flash('info')
           };
           res.render('manage/songs/index', model);
         });
     });
     router.get('/', function (req, res) {
-        res.render('manage/index');
+        res.render('manage/index',{messages: req.flash('info')});
     });
     router.get('/styles', function (req, res) {
       Style.find({},function(err,styles){
@@ -27,7 +28,8 @@ module.exports = function (router) {
           console.log(err);
         }
         var model = {
-          styles: styles
+          styles: styles,
+          messages: req.flash('info')
         };
         res.render('manage/styles/index', model);
       });
@@ -38,7 +40,8 @@ module.exports = function (router) {
           console.log(err);
         }
         var model = {
-          styles: styles
+          styles: styles,
+          messages: req.flash('info')
         };
         res.render('manage/songs/add', model);
       });
@@ -86,7 +89,7 @@ module.exports = function (router) {
           if(err){
             console.log('save error', err);
           }
-          req.flash('success',"Song Added");
+          req.flash('info',"Song Added");
           res.location('/manage/songs');
           res.redirect('/manage/songs');
         });
@@ -101,7 +104,8 @@ module.exports = function (router) {
           }
           var model = {
             song: song,
-            styles: styles
+            styles: styles,
+            messages: req.flash('info')
           };
           res.render('manage/songs/edit', model);
         });
@@ -113,20 +117,22 @@ module.exports = function (router) {
       var author = req.body.author && req.body.author.trim();
       var price = req.body.price && req.body.price.trim();
       var description = req.body.description && req.body.description.trim();
-      var cover = req.body.cover && req.body.cover.trim();
+      var url = req.body.flashurl && req.body.flashurl.trim();
+      var cover = req.body.coverurl && req.body.coverurl.trim();
 
       Song.update({_id: req.params.id},{
         title: title,
         style: style,
-        author: author,
-        price: price,
         description: description,
-        cover: cover
+        author: author,
+        cover: cover,
+        price: price,
+        url: url
       }, function(err){
         if(err){
           console.console.log('update error',err);
         }
-        req.flash('success',"Song Updated");
+        req.flash('info',"Song Updated");
         //console.log(messages);
         res.location('/manage/songs');
         res.redirect('/manage/songs');
@@ -138,14 +144,14 @@ module.exports = function (router) {
         if(err){
           console.log(err);
         }
-        req.flash('success',"Song Deleted");
+        req.flash('info',"Song Deleted");
         res.location('/manage/songs');
         res.redirect('/manage/songs');
       });
     });
 
     router.get('/styles/add',function(req,res){
-      res.render('manage/styles/add');
+      res.render('manage/styles/add',{messages: req.flash('info')});
     });
 
     router.post('/styles',function(req,res){
@@ -165,7 +171,7 @@ module.exports = function (router) {
           console.log('save error',err);
         }
 
-        req.flash('success',"Style Added");
+        req.flash('info',"Style Added");
         res.location('/manage/styles');
         res.redirect('/manage/styles');
       });
@@ -177,7 +183,8 @@ module.exports = function (router) {
           console.log(err);
         }
         var model = {
-          style: style
+          style: style,
+          messages: req.flash('info')
         };
         res.render('manage/styles/edit',model);
       });
@@ -193,7 +200,7 @@ module.exports = function (router) {
           console.log('update error',err);
         }
 
-        req.flash('success',"Style Updated");
+        req.flash('info',"Style Updated");
         res.location('/manage/styles');
         res.redirect('/manage/styles');
       });
@@ -204,7 +211,7 @@ module.exports = function (router) {
         if(err){
           console.log(err);
         }
-        req.flash('success',"Style Deleted");
+        req.flash('info',"Style Deleted");
         res.location('/manage/styles');
         res.redirect('/manage/styles');
       });
