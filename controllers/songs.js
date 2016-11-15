@@ -11,10 +11,9 @@ module.exports = function (router) {
             console.log(err);
           }
           var model = {
-            song: song
+            song: song,
+            messages: req.flash('info')
           };
-          console.log('**************************************************');
-          console.log(song.flashurl);
           res.render('songs/details',model);
         });
     });

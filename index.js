@@ -27,8 +27,8 @@ app = module.exports = express();
 app.use(kraken(options));
 
 app.use(flash());
-app.use(function(req,res,next){
-  res.locals.messages = require('express-messages')(req,res);
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
   next();
 });
 

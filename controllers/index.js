@@ -12,7 +12,8 @@ module.exports = function (router) {
           song.truncText = song.truncText(50);
         });
         var model = {
-          songs: songs
+          songs: songs,
+          messages: req.flash('info')
         };
         res.render('index', model);
       });

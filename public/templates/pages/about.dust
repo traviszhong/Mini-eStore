@@ -4,11 +4,61 @@
 {/title}
 
 {<body}
-  <div class="row">
-    <div class="col-lg colums">
-      <h2>About Us</h2>
-      <p>This is the paragraph to describe ourselves. We have a lot of things to say, but in short, I don't know what to say here right now.</p>
-      <p>Also, if you do not know about us, you can buy something from us, and you will know more about us.
-    </div>
+  <div class="jumbotron">
+    <h1 style="color:#929494">Welcome</h1>
+    <br>
+    <p style="color:red">All songs on this website are recorded by myself and totally free, please DO NOT pay for any songs.</p>
   </div>
+  <br><br>
+  <div class="col-lg colums">
+    <h2>About Me</h2>
+    <br>
+    <dl class="dl-horizontal">
+      <dt>Introduction:</dt>
+      <dd>Hello, my name is Ziyue, thanks for visiting my website. If you have some comments for this website, please contact me from the contact section below.</dd>
+      <br>
+      <dt>Career Objective:</dt>
+      <dd>Software Engineer</dd>
+      <br>
+      <dt>Prof. Experience:</dt>
+      <dd>
+        <ul>
+          <li><a href="www.strongit.com.cn">Strong IT Inc.</a> Software Engineer 2013–2014</li>
+          <li><a href="www.umt.edu">UMT IT Central</a> Software Engineer 2015–2016</li>
+        <ul>
+      </dd>
+      <br>
+      <dt>Educatioin:</dt>
+      <dd>
+        <ul>
+          <li><a href="www.umt.edu">University of Montana</a> M.S., Master of Science in Computer Science (GPA: 3.79/4.0) 	2014.09 - 2016.06</li>
+          <li><a href="www.ncu.edu">Nanchang University</a> M.S., Master of Science in Computer Science 	2010.09 - 2013.06</li>
+          <li><a href="www.ncu.edu">Nanchang University</a> B.S., Bachelor of Science in Computer Science 	2006.09 - 2010.06</li>
+        <ul>
+      </dd>
+      <br>
+      <dt>My Resume:</dt>
+      <dd><a href="https://www.dropbox.com/s/fb6d1vj3a24f87m/Zhong%20Ziyue%20Resume.pdf?dl=0">Dropbox</a></dd>
+    </dl>
+  </div>
+  <br><br><br>
+  <div class="col-lg colums">
+    <h2>Contact Me</h2>
+    <form method="post" action="/pages/send">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Your Name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="msg">Message</label>
+        <textarea class="form-control" rows="3" id="msg" name="msg" placeholder="Please type in your messages here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
 {/body}

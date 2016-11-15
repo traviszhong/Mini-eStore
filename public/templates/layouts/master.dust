@@ -32,7 +32,12 @@
       </nav>
       <div class="container">
         <div class="row">
-          {messages|s}
+          {?messages}
+            <ul class="info">
+              <li>{messages|s}</li>
+            </ul>
+          {:else}
+          {/messages}
           {+body /}
         </div>
       </div>

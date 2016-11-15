@@ -18,7 +18,8 @@ module.exports = function (router) {
         displayCart.total = total.toFixed(2);
         //render cart
         res.render('cart/index',{
-          cart: displayCart
+          cart: displayCart,
+          messages: undefined
         });
     });
     router.post('/:id', function (req, res) {
@@ -46,6 +47,7 @@ module.exports = function (router) {
     });
     router.get('/remove',function(req,res){
       req.session.cart = {};
-      res.render('cart/index');
+      req.flash('info','Cart has been emptied!');
+      res.render('cart/index',{messages:req.flash('info')});
     });
 };
