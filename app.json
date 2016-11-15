@@ -4,5 +4,7 @@
   "repository": "https://github.com/traviszhong/Mini-eStore.git",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
-  "image": "heroku/node"
+  "image": "heroku/node",
+  "view engine": "dust",
+  "views": "path:./public/templates"
 }
