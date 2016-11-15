@@ -5,7 +5,7 @@ module.exports = function(router) {
     res.render('pages/about',{messages:req.flash('info')});
   });
   router.post('/send',function(req,res,next){
-    var transporter = nodemailer.createTransport('smtps://traviszhong:*****@smtp.gmail.com');
+    var transporter = nodemailer.createTransport('smtps://zymusicstore:zymusicstore123@smtp.gmail.com');
     var mailOptions = {
       from: 'Music Store Message Service <traviszhong@gmail.com>',
       to: 'traviszhong@gmail.com',

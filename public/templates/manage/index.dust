@@ -1,5 +1,10 @@
 {>"layouts/manage" /}
 {<body}
-  <h2>Manage</h2>
-  <p>This is the manage area</p>
+  <h2>Welcome to managment page,</h2>
+  <p>This is the manage area, here you can:</p>
+  <ul>
+    <li><a href="/manage/songs">Manage Songs</a></li>
+    <li><a href="/manage/styles">Manage Styles</a></li>
+    <li><a href="/">Go back to website</a></li>
+  </ul>
 {/body}
