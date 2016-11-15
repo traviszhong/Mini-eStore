@@ -1,0 +1,8 @@
+{
+  "name": "Zy Music Store",
+  "description": "A Sample Code of eStore by Ziyue",
+  "repository": "https://github.com/traviszhong/Mini-eStore.git",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/node"
+}
